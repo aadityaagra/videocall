@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capture Photo</title>
+</head>
+<body>
+  <video id="video" width="320" height="240" autoplay></video>
+  <canvas id="canvas" width="320" height="240"></canvas>
+  <button id="capture">Capture</button>
+  <img id="photo" src="" alt="Captured Photo">
+  <script>
+    const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const image = document.getElementById('image');
+
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(stream => {
+    video.srcObject = stream;
+  })
+  .catch(error => {
+    console.error('Error accessing webcam:', error);
+  });
+
+video.addEventListener('play', () => {
+  const canvasContext = canvas.getContext('2d');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+
+  const intervalId = setInterval(() => {
+    canvasContext.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const imageData = canvas.toDataURL('image/jpeg');
+    image.src = imageData;
+  }, 30); // Adjust interval for desired frame rate
+});
+//     const video = document.getElementById('video');
+// const canvas = document.getElementById('canvas');
+// const captureButton = document.getElementById('capture');   
+
+// const photo = document.getElementById('photo');
+
+// navigator.mediaDevices.getUserMedia({ video: true })
+//   .then(stream => {
+//     video.srcObject = stream;
+//   })
+//   .catch(error => {
+//     console.error('Error accessing webcam:', error);
+//   });
+
+// captureButton.addEventListener('click',   
+//  () => {
+//   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+//   const imageData = canvas.toDataURL('image/jpeg');   
+
+//   photo.src = imageData;
+// });
+  </script>
+</body>
+</html>
