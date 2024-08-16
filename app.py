@@ -73,5 +73,5 @@ def handle_image_capture(data):
     # Broadcast the received image to all connected clients
     emit('broadcast_image', data, broadcast=True)
 
-if __name__ == '__main__':
+if any(platform.win32_ver()):
     socketio.run(app, debug=True)
