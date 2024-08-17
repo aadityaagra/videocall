@@ -8,6 +8,7 @@
     <link rel="icon" href="/static/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Exo:400,700" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
         <h1>Coding Craft YT</h1>
         <h3>Taking Your Flask Project Beyond Localhost!</h3>
     </div>
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    
     <script>
         var socket = io();
         socket.on('connect', function() {
