@@ -13,4 +13,4 @@ def handle_button_click():
     emit('display_message', 'Hello')
 
 if __name__ == '__main__':
-    socketio.run(debug=True)
+    socketio.run(app,debug=True)
