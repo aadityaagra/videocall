@@ -37,10 +37,12 @@
         const socket = io.connect('http://' + document.domain + ':' + location.port);
 
         document.getElementById('myButton').addEventListener('click', function() {
+            console.log('Button clicked!');
             socket.emit('button_clicked');
         });
 
         socket.on('display_message', function(message) {
+            console.log('Message from server:', message);
             document.getElementById('message').innerText = message;
         });
     </script>
