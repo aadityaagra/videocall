@@ -7,5 +7,3 @@ app = Flask(__name__)
 def hello():
     return 'hello'
 
-if __name__==(__name__):
-    app.run()
